@@ -1,23 +1,46 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import TodoList from './components/ToDoList';
 import './App.css';
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
+
+  const handleTaskChange = (event) => {
+    setNewTask(event.target.value);
+  };
+
+  const handleTaskSubmit = (event) => {
+    event.preventDefault();
+    if (newTask.trim() !== '') {
+      setTasks([...tasks, newTask]);
+      setNewTask('');
+    }
+  };
+
+  const handleDelete = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1 className="app-title">"Master Your Day: Your Ultimate Task Checklist!" </h1>
+      <div className="task-form">
+        <form onSubmit={handleTaskSubmit}>
+          <input
+            type="text"
+            className="task-input"
+            value={newTask}
+            onChange={handleTaskChange}
+            placeholder="Enter a task..."
+          />
+          <button type="submit" className="add-task-button">
+            Add Task
+          </button>
+        </form>
+      </div>
+      <TodoList tasks={tasks} onDelete={handleDelete} />
     </div>
   );
 }
