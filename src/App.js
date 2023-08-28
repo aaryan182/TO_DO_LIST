@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TodoList from './components/ToDoList';
 import './App.css';
+import Clock from './components/Clock';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -41,6 +42,7 @@ function App() {
         </form>
       </div>
       <TodoList tasks={tasks} onDelete={handleDelete} />
+      <Clock/>
     </div>
   );
 }
