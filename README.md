@@ -1,3 +1,7 @@
+PEEK INTO THE WEBSITE : https://aaryan182.github.io/TO_DO_LIST/
+
+PEEK INTO THE VIDEO: https://github.com/aaryan182/TO_DO_LIST/assets/73265857/fca5d548-bc27-4df4-aa05-c438247fe09e
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
